@@ -5,7 +5,6 @@ import SwapiService from "../../services/swapi-service";
 import Spinner from "../spinner";
 import ErrorButton from "../error-button";
 
-
 export default class PersonDetails extends Component {
   swapiService = new SwapiService();
 
@@ -20,7 +19,7 @@ export default class PersonDetails extends Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.personId !== prevProps.personId) {
-      this.setState({loading: true})
+      this.setState({ loading: true });
       this.updatePerson();
     }
   }
@@ -39,8 +38,8 @@ export default class PersonDetails extends Component {
     if (!this.state.person) {
       return <span>Select a person from a list</span>;
     }
-    if(this.state.loading){
-      return <Spinner/>
+    if (this.state.loading) {
+      return <Spinner />;
     }
     const { id, name, gender, birthYear, eyeColor } = this.state.person;
 
@@ -70,7 +69,7 @@ export default class PersonDetails extends Component {
               <span>{eyeColor}</span>
             </li>
           </ul>
-          <ErrorButton/>
+          <ErrorButton />
         </div>
       </div>
     );
